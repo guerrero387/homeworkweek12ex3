@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">  
+
+<head>
+
+        
+    <meta charset="utf-8">     
+    <meta name="viewport"  content="width=device-width, initial-scale=1">
+    <title>Currency Converter</title>
+
+
+
+
+      
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+    body {
+        background: linear-gradient(to right, rgb(6, 201, 6) 0%, white 100%);
+        color: white;
+    }
+
+    .tableclass {
+        border: solid green 10px;
+
+    }
+
+    img {
+        border-radius: 15%;
+        width: 350px;
+        height: auto;
+    }
+    td{
+        font-weight: bold;
+    }
+
+    a:link,
+    a:visited {
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+
+    h1 {
+        font-family: 'Lobster', cursive;
+        color: white;
+    }
+</style>
+
+
+
+
+
+<body>
+
+
+    <table class="tableclass">
+        <tr>
+            <td>
+                <h1>Currency Converter</h1>
+
+
+                <P><strong>Convert USA Dollars to other currencies.</strong></P>
+
+                <form name=theform>
+                    <table>
+                        <tr>
+                            <td rowspan="10"><img src="money.jpg" alt="picture of money"></td>
+                            <td style="float: right;"><strong>Enter USA dollar amount: </strong></td>
+                            <td><input name="dollarFmInput" size="10"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right;"><strong>Euro: </strong></td>
+                            <td style="background-color: white; color: black" id="euroFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right;"><strong>Pound sterling: </strong></td>
+                            <td style="background-color: white; color: black" id="poundFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right;"><strong>Australian Dollar: </strong></td>
+                            <td style="background-color: white; color: black" id="australianFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right;"><strong>Mexican Pesos: </strong></td>
+                            <td style="background-color: white; color: black" id="pesosFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right;"><strong>Canadian Dollar: </strong></td>
+                            <td style="background-color: white; color: black" id="canadianFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Turkish lira: </strong></td>
+                            <td style="background-color: white; color: black" id="liraFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Japanese yen: </strong></td>
+                            <td style="background-color: white; color: black" id="yenFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="float: right"><strong>Swiss franc: </strong></td>
+                            <td style="background-color: white; color: black" id="francFmOutput"></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="20"><input type="button" name="calc" value="Calculate" onclick="calculate();">
+                              <input type="button" name="clear" value="Clear" onclick="clearinfo();">
+                            </td>
+                    </table>
+                </form>
+
+
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        document.theform.dollarFmInput.focus();
+
+        function calculate() {
+            const euro = .84;
+            const pound = .77;
+            const australian = 1.40;
+            const pesos = 20.86;
+            const canadian = 1.31;
+            const lira = 7.96
+            const yen = 104.76;
+            const franc = .90;
+
+
+            var UsDollar
+
+            var euroTotal
+            var poundTotal
+            var australianTotal
+            var pesosTotal
+            var canadianTotal
+            var liraTotal
+            var yenTotal
+            var francTotal
+
+
+            //get values from the text fields
+            UsDollar = parseFloat(document.theform.dollarFmInput.value);
+
+
+
+            //calculate the overall numeric average
+            euroTotal = parseFloat(UsDollar * euro);
+            poundTotal = parseFloat(UsDollar * pound);
+            australianTotal = parseFloat(UsDollar * australian);
+            pesosTotal = parseFloat(UsDollar * pesos);
+            canadianTotal = parseFloat(UsDollar * canadian);
+            liraTotal = parseFloat(UsDollar * lira);
+            yenTotal = parseFloat(UsDollar * yen);
+            francTotal = parseFloat(UsDollar * franc);
+
+
+
+
+
+
+            //diplay the overall numerical and legger grade averages
+            document.getElementById("euroFmOutput").innerHTML = "$" + euroTotal.toFixed(2);
+            document.getElementById("poundFmOutput").innerHTML = "$" + poundTotal.toFixed(2);
+            document.getElementById("australianFmOutput").innerHTML = "$" + australianTotal.toFixed(2);
+            document.getElementById("pesosFmOutput").innerHTML = "$" + pesosTotal.toFixed(2);
+            document.getElementById("canadianFmOutput").innerHTML = "$" + canadianTotal.toFixed(2);
+            document.getElementById("liraFmOutput").innerHTML = "$" + liraTotal.toFixed(2);
+            document.getElementById("yenFmOutput").innerHTML = "$" + yenTotal.toFixed(2);
+            document.getElementById("francFmOutput").innerHTML = "$" + francTotal.toFixed(2);
+
+
+
+        }
+
+        function clearinfo() {
+            document.theform.dollarFmInput.value = " ";
+
+            document.getElementById("euroFmOutput").innerHTML = " ";
+            document.getElementById("poundFmOutput").innerHTML = " ";
+            document.getElementById("australianFmOutput").innerHTML = " ";
+            document.getElementById("pesosFmOutput").innerHTML = " ";
+            document.getElementById("canadianFmOutput").innerHTML = " ";
+            document.getElementById("liraFmOutput").innerHTML = " ";
+            document.getElementById("yenFmOutput").innerHTML = " ";
+            document.getElementById("francFmOutput").innerHTML = " ";
+
+            document.theform.dollarFmInput.focus();
+
+
+
+        }
+
+
+
+    </script>
+
+    <p></p>
+    <a href="http://csnet.southtexascollege.edu/localuser/oguerrer/">Go Back to HOMEPAGE</a><br>
+    <strong>Oscar Guerrero</strong>
+
+
+
+</body>
+
+</html>
